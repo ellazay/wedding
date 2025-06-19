@@ -4,13 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Ella & Zay</title>
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;700&family=Poppins:wght@300;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;700&family=Poppins:wght@300;500&family=Pinyon+Script&family=Inria+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet" />
+
   <style>
     html {
       scroll-behavior: smooth;
     }
 
     body {
+      background: linear-gradient(135deg, #f6f1ee 0%, #ded4d0 100%);
       margin: 0;
       padding: 1rem;
       font-family: 'Poppins', sans-serif;
@@ -19,9 +21,8 @@
       align-items: center;
       justify-content: flex-start;
       text-align: center;
-      min-height: 100%;
+      min-height: 100vh;
       box-sizing: border-box;
-      background-color: #e6e6e6;
     }
 
     .header-image {
@@ -50,14 +51,15 @@
       animation: fadeIn 2s ease;
       flex-grow: 1;
       width: 100%;
+      max-width: 900px;
     }
 
     .frame {
       border: 1px solid #000;
       border-radius: 20px;
       padding: 1rem;
-      margin: 1rem;
-      box-sizing: border-box;
+      margin: 1rem auto;
+      /*background-color: #fff;*/
     }
 
     @keyframes fadeIn {
@@ -74,39 +76,29 @@
     h1 {
       font-family: 'Great Vibes', cursive;
       font-size: calc(4vw + 2rem);
-      margin: 0;
+      margin: 0 0 1rem;
       color: #333;
       line-height: 1;
     }
 
-    h2, h3 {
+    h3 {
       font-family: 'Playfair Display', serif;
       color: #333;
       margin-bottom: 1rem;
-    }
-
-    h2 {
-      font-size: 2rem;
-      font-weight: bold;
-      color: #9b7a7a;
-    }
-
-    h3 {
-      font-size: 1.8rem;
+      font-size: 1.4rem;
     }
 
     .wedding-details {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.2rem;
+      font-family: 'Inria Serif', serif;
+      font-size: 0.9rem;
       color: #6b4c4c;
-      margin: 2rem auto;
-      text-align: center;
+      margin: 2rem auto 0;
       display: flex;
       justify-content: center;
       align-items: center;
-      width: 100%;
       max-width: 800px;
-      position: relative;
+      width: 100%;
+      text-align: center;
     }
 
     .wedding-details div:first-child {
@@ -117,12 +109,6 @@
       .wedding-details div:first-child {
         margin-right: 5rem !important;
       }
-
-      .wedding-details .underline {
-        left: 5%;
-        right: 5%;
-        width: 90%;
-      }
     }
 
     .wedding-details p {
@@ -131,41 +117,85 @@
     }
 
     .wedding-details .bigger {
-      font-size: 1.5rem;
+      font-size: 1.4rem;
     }
 
     .wedding-details .normal {
-      font-size: 1.3rem;
+      font-size: 1.1rem;
     }
 
-    .underline {
+    .airplane-line {
+      position: relative;
+      height: 20px;
+      margin: 2rem auto 0;
+      width: 100%;
+      max-width: 800px;
+      overflow: hidden;
+    }
+
+    .airplane-line .line {
       position: absolute;
-      bottom: -5px;
-      left: 30%;
-      right: 30%;
-      width: 40%;
-      height: 2px;
-      background-color: #333;
+      top: 50%;
+      left: 0;
+      height: 3px;
+      background-image: repeating-radial-gradient(#333 0 2px, transparent 2px 6px);
+      background-size: 6px 6px;
+      opacity: 0.4;
+      transform: translateY(-50%);
+      width: 0;
+      transition: width 0.1s linear;
+    }
+
+    .airplane-line .plane {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      font-size: 2rem;
+      transform: translateY(-50%);
+      user-select: none;
     }
 
     .invitation-text,
-    .timeline,
     .dress-code {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.1rem;
+      font-family: 'Inria Serif', serif;
+      font-size: 0.9rem;
       color: #6b4c4c;
-      margin: 1rem;
+      margin: 2rem auto;
       text-align: center;
+      max-width: 600px;
+      width: 100%;
     }
 
-    .timeline ul {
-      list-style-type: none;
-      padding: 0;
+    .timeline {
+      text-align: center;
+      margin: 2rem auto;
     }
 
-    .timeline li {
-      margin-bottom: 1rem;
-      font-size: 1.1rem;
+    .timeline-table-container {
+      display: flex;
+      justify-content: center;
+    }
+
+    .timeline-table {
+      font-family: 'Inria Serif', serif;
+      font-size: 0.9rem;
+      color: #6b4c4c;
+      border-collapse: collapse;
+      text-align: left;
+      width: auto;
+    }
+
+    .timeline-table td {
+      padding: 0.4rem 1rem;
+      vertical-align: top;
+      text-align: right;
+    }
+
+    .timeline-table td:first-child {
+      color: #9b7a7a;
+      font-weight: bold;
+      white-space: nowrap;
+      text-align: left;
     }
 
     .dress-code span {
@@ -194,9 +224,7 @@
 
     .countdown {
       font-family: 'Playfair Display', serif;
-      font-size: 1.8rem;
-      color: #333;
-      margin-top: 2rem;
+      font-size: 1.4rem;
     }
 
     .rsvp-button {
@@ -230,18 +258,10 @@
       text-align: center;
     }
 
-    #rsvp-form h3 {
-      font-family: 'Playfair Display', serif;
-      font-weight: bold;
-      color: #333;
-      font-size: 1.8rem;
-      margin-bottom: 1.5rem;
-    }
-
     #rsvp-form p {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.1rem;
-	  color: #6b4c4c;
+      font-family: 'Inria Serif', serif;
+      font-size: 0.9rem;
+      color: #6b4c4c;
     }
 
     form {
@@ -275,25 +295,25 @@
     }
 
     form button {
-      width: 100%;
-      margin-top: 2rem;
-      padding: 1rem;
-      background: #d4a5a5;
-      border: none;
-      color: #e6e6e6;
-      font-size: 1.2rem;
-      font-weight: bold;
-      border-radius: 50px;
-      cursor: pointer;
-      transition: background 0.3s ease, transform 0.3s ease;
-      font-family: 'Playfair Display', serif;
-    }
+    width: 100%;
+    margin-top: 2rem;
+    padding: 1rem;
+    background: #b77a7a;
+    border: none;
+    color: #f6f1ee; /* light text for contrast */
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+    font-family: 'Playfair Display', serif;
+  }
 
-    form button:hover {
-      background: #c48a8a;
-      transform: scale(1.03);
-      color: #333;
-    }
+  form button:hover {
+    background: #9e5f5f;
+    transform: scale(1.03);
+    color: #6b4c4c;
+  }
 
     @media (max-width: 768px) {
       form {
@@ -314,7 +334,11 @@
         <div>
           <p><strong><span class="bigger">Phuket</span></strong><br /><span class="normal">Place</span></p>
         </div>
-        <div class="underline"></div>
+      </div>
+
+      <div class="airplane-line" id="airplaneLine">
+        <div class="line" id="line"></div>
+        <div class="plane" id="plane">✈</div>
       </div>
 
       <div class="countdown" id="countdown"></div>
@@ -323,21 +347,25 @@
       <div class="invitation-text">
         <h3>Dear Friends & Family</h3>
         <p>This December, a special and joyful moment awaits us – our wedding.</p>
-        <p>We can’t imagine celebrating this day without the presence of our dearest ones. </p>
-		<p>With full hearts, we invite you to join us and share in the happiness of this unforgettable moment.</p>
+        <p>We can’t imagine celebrating this day without the presence of our dearest ones.</p>
+        <p>With full hearts, we invite you to join us and share in the happiness of this unforgettable moment.</p>
       </div>
     </div>
 
     <div class="timeline">
-      <h3>Event Timeline</h3>
-      <ul>
-        <li><strong>4:00 PM:</strong> Guests Arrival</li>
-        <li><strong>5:00 PM:</strong> Wedding Ceremony</li>
-        <li><strong>6:00 PM:</strong> Cocktail Hour</li>
-        <li><strong>7:00 PM:</strong> Reception Dinner & Toasts</li>
-        <li><strong>9:00 PM:</strong> Cake Cutting</li>
-        <li><strong>11:00 PM:</strong> Farewell & After Party (Optional)</li>
-      </ul>
+      <h3>Wedding Timeline</h3>
+      <div class="timeline-table-container">
+        <table class="timeline-table">
+          <tbody>
+            <tr><td>4:00 PM</td><td>Guests Arrival</td></tr>
+            <tr><td>5:00 PM</td><td>Wedding Ceremony</td></tr>
+            <tr><td>6:00 PM</td><td>Cocktail Hour</td></tr>
+            <tr><td>7:00 PM</td><td>Reception Dinner & Toasts</td></tr>
+            <tr><td>9:00 PM</td><td>Cake Cutting</td></tr>
+            <tr><td>11:00 PM</td><td>Farewell & After Party (Optional)</td></tr>
+          </tbody>
+        </table>
+      </div>
     </div>
 
     <div class="dress-code">
@@ -372,10 +400,13 @@
       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3951.634822855902!2d98.2603263756855!3d7.933154105177576!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30503bb28a54b709%3A0x404a5bfccc13a069!2sParesa%20Resort!5e0!3m2!1sen!2sau!4v1745883536907!5m2!1sen!2sau" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
 
-    <footer>© Ella & Zay 2025</footer>
+    <footer style="margin-top: 3rem; text-align: center;">
+      <img src="https://i.postimg.cc/ZRgN9TWd/Wedding-Logo-Small.png" alt="Ella & Zay 2025" style="max-width: 100px; height: auto;" />
+    </footer>
   </div>
 
   <script>
+    // Countdown Timer
     const countdownDate = new Date("Dec 12, 2025 16:00:00").getTime();
     const countdownElement = document.getElementById("countdown");
 
@@ -384,7 +415,7 @@
       const timeLeft = countdownDate - now;
 
       if (timeLeft <= 0) {
-        countdownElement.innerHTML = "The wedding has started!";
+        countdownElement.textContent = "The wedding has started!";
         clearInterval(timerInterval);
         return;
       }
@@ -394,10 +425,36 @@
       const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
       const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
-      countdownElement.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+      countdownElement.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
     }
 
     const timerInterval = setInterval(updateCountdown, 1000);
+    updateCountdown(); // Initialize immediately
+
+    // Airplane animation with trailing dotted line
+    const plane = document.getElementById('plane');
+    const line = document.getElementById('line');
+    const container = document.getElementById('airplaneLine');
+    const duration = 6000; // 6 seconds per flight
+
+    let startTime = null;
+    function animate(timestamp) {
+      if (!startTime) startTime = timestamp;
+      const elapsed = (timestamp - startTime) % duration;
+      const progress = elapsed / duration;
+      const containerWidth = container.clientWidth;
+
+      // Plane moves from -10% to 110% of container width (off-screen on both ends)
+      const leftPercent = -10 + 120 * progress;
+      const leftPx = (leftPercent / 100) * containerWidth;
+
+      plane.style.left = `${leftPx}px`;
+      line.style.width = `${Math.max(leftPx, 0)}px`;
+
+      requestAnimationFrame(animate);
+    }
+
+    requestAnimationFrame(animate);
   </script>
 </body>
 </html>
